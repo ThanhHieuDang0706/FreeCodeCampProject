@@ -1,0 +1,62 @@
+img {
+    max-height: 500px;
+    max-width: 500px;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+body {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #555555;
+    line-height: 1.5;
+    letter-spacing: .25px;
+}
+
+p {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #555555;
+    line-height: 1.5;
+    letter-spacing: .25px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #006600;
+    letter-spacing: 1.4px;
+    border-bottom: solid 1px #006600;
+    text-transform: uppercase;
+    
+    
+}
+
+
+h2 {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 1.2px;
+    color: #009900;
+}
+
+.time {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1.4px;
+    border-bottom: solid 1px #006600;
+    text-transform: uppercase;
+}
+
+figcaption {
+    margin:auto;
+    width: 50%;
+    padding: 10px;
+}
