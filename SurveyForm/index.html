@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <header class="head">
-<h1 id="title h1" id="title">Bach Khoa University Survey</h1>
+<h1 id="title">Bach Khoa University Survey</h1>
     <p id="description">Your thoughts on Bach Khoa University</p>
 </header>
 <body class="body">
 <form id="survey-form">
     <label for="name" id="name-label">Your Name:</label> <br>
-    <input type="text" id="name" name="name" placeholder="John Doe"><br>
+    <input type="text" id="name" name="name" placeholder="John Doe" required><br>
     <label for="email" id="email-label">Email:</label> <br>
-    <input type="email" id="email" name="email" placeholder="johndoe@gmail.com"><br>                       
+    <input type="email" id="email" name="email" placeholder="johndoe@gmail.com" required><br>                       
     <label for="age" id="number-label">Age:</label> <br>
     <input type="number" id="number" name="age" min="1" max="100" placeholder="20"><br>  <label for="job" id="job-label">Your job:</label> <br>
     <input type="text" id="name" name="name" placeholder="Engineer"><br>
@@ -29,17 +29,34 @@
     <option value="architecture">Architecture</option>
     <option value="logistics">Logistics and supply Management</option>
     <option value="car">Car Enginneer</option>
-    <option value= "others">Others</option>
+    <option value= "others">Others</option> <br>
+        </select>
     
-    <label for="like" id="like-label">What are you impressed with Bach Khoa University?</label>
+    <br>
+    
+    <label for="like" id="like-label">What are you impressed with Bach Khoa University?</label> <br>
     <input type="checkbox" name="impression" id="impress" value="academic">Academic Quality <br>
+    <input type="checkbox" name="impression" id="impress" value="job ">Career Perspective<br>
+    <input type="checkbox" name="impression" id="impress" value="social-activities">Social Activities<br>
+    <input type="checkbox" name="impression" id="impress" value="view">Campus view<br>
+    <input type="checkbox" name="impression" id="impress" value="view">Great Facility<br>
+    <input type="checkbox" name="impression" id="impress" value="view">Others<br>
+    <textarea id="impress-text-area" name="like-text" row="20" cols="100" placeholder="What other things are you impressed?"> </textarea>
+    <br>
+        <label for="like" id="notlike-label">What do you not like about Bach Khoa University?</label> <br>
+    <textarea id="notlike" name="notlike" row="20" cols="100">Your HONEST thoughts: </textarea>
+    <br>
+    <label for="suggestions" id="suggest-label">Any suggestions?</label> <br>
+    <textarea id="suggest" name="suggest" row="20" cols="100"></textarea>    
     
-    
-    </select>
+    <br><br>
+    <input type="submit" id="submit"> Submit<br>
     
     
     </form>
     
+    
+
 
 </body>
 </html>
