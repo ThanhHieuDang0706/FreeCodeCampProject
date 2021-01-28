@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    
+    </head>
+
+<body>
+    
+    <nav id="navbar">
+    <header id="header-nav">C# Coding Conventions</header>
+    <ul class="nav-list">
+        <li>
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        </li>
+        <li><a class="nav-link" href="#Naming_Conventions">Naming Conventions</a></li>
+        <li><a class="nav-link" href="#Layout_Conventions">Layout Conventions</a></li>
+        <li><a class="nav-link" href="#Commenting_Conventions">Commenting Conventions</a></li>
+        <li><a class="nav-link" href="#Language_Guidelines">Language Guidelines</a></li>
+        <li><a class="nav-link" href="#String_Data_Type">String Data Type</a></li>
+        <li><a class="nav-link" href="#Implicitly_Typed_Local_Variables">Implicitly Typed Local Variables</a></li>
+        <li><a class="nav-link" href="#Unsigned_Data_Type">Unsigned Data Type</a></li>
+        <li><a class="nav-link" href="#Arrays">Arrays</a></li>
+        <li><a class="nav-link" href="#Delegates">Delegates</a></li>
+        <li><a class="nav-link" href="#try-catch_and_using_Statements_in_Exception_Handling">try-catch and using Statements in Exception Handling</a></li>
+        <li><a class="nav-link" href="#&&_and_||_Operators">&& and || Operators</a></li>
+        <li><a class="nav-link" href="#New_Operator">New Operator</a></li>
+        <li><a class="nav-link" href="#Event_Handling">Event Handling</a></li>
+        <li><a class="nav-link" href="#Static_Members">Static Members</a></li>
+        <li><a class="nav-link" href="#LINQ_Queries">LINQ Queries</a></li>
+        <li><a class="nav-link" href="#Security">Security</a></li>
+        <li><a class="nav-link" href="#See_also">See also</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main-doc">
+    
+    <section class="main-section" id="Introduction">
+        <header id="header-section">Introduction</header>
+        <article>
+        <p>Coding conventions serve the following purposes:</p>
+            <ul>
+            <li>They create a consistent look to the code, so that readers can focus on content, not layout.</li>
+            <li>They enable readers to understand the code more quickly by making assumptions based on previous experience.</li>
+            <li>They facilitate copying, changing, and maintaining the code.</li>
+            <li>They demonstrate C# best practices.</li>
+            </ul>
+        <p>The guidelines in this article are used by Microsoft to develop samples and documentation.</p>    
+        </article>
+        </section>
+    
+    <section class="main-section" id="Naming_Conventions">
+        <header id="header-section">Naming Conventions</header>
+        <article>
+        <ul>
+            <li><p>In short examples that do not include using directives, use namespace qualifications. If you know that a namespace is imported by default in a project, you do not have to fully qualify the names from that namespace. Qualified names can be broken after a dot (.) if they are too long for a single line, as shown in the following example.</p>
+    
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                var currentPerformanceCounterCategory = new System.Diagnostics.
+                PerformanceCounterCategory();
+                </code>
+            </li>
+            <li><p>You do not have to change the names of objects that were created by using the Visual Studio designer tools to make them fit other guidelines.</p></li>
+            </ul>
+        </article>
+        
+    </section>
+    <section class="main-section" id="Layout_Conventions">
+        <header id="header-section">Layout Conventions</header>
+        <article>
+        <p>Good layout uses formatting to emphasize the structure of your code and to make the code easier to read. Microsoft examples and samples conform to the following conventions:</p>
+        <ul id="section-list">
+            <li>Use the default Code Editor settings (smart indenting, four-character indents, tabs saved as spaces). For more information, see Options, Text Editor, C#, Formatting.</li>
+            <li>Write only one statement per line.</li>
+            <li>Write only one declaration per line.</li>
+            <li>If continuation lines are not indented automatically, indent them one tab stop (four spaces).</li>
+            <li>Add at least one blank line between method definitions and property definitions.</li>
+            <li>Use parentheses to make clauses in an expression apparent, as shown in the following code.
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                if ((val1 > val2) && (val1 > val3))
+                {
+                    // Take appropriate action.
+                }
+                </code>
+            </li>
+            </ul>
+        </article>
+        
+        </section>
+        
+        </section>
+    <section class="main-section" id="Commenting_Conventions">
+        <header id="header-section">Commenting Conventions</header>
+        <article>
+        <ul id="section-list">
+            <li>Place the comment on a separate line, not at the end of a line of code.</li>
+            <li>Begin comment text with an uppercase letter.</li>
+            <li>End comment text with a period.</li>
+            <li>Insert one space between the comment delimiter (//) and the comment text, as shown in the following example.
+            <code>
+                <header id="code-header">C#</header>
+                // The following declaration creates a query. It does not run
+                // the query.
+                </code>
+            </li>
+            <li>Do not create formatted blocks of asterisks around comments.</li>
+            </ul>
+        </article>
+        
+        </section>
+        
+        
+    <section class="main-section" id="Language_Guidelines">
+        <header id="header-section">Language Guidelines</header>
+        <article>
+        <p>The following sections describe practices that the C# team follows to prepare code examples and samples.</p></article>
+        </section>
+        
+    
+    <section class="main-section" id="String_Data_Type">
+        <header id="header-section">String Data Type</header>
+        <article>
+        <ul id="section-list">
+            <li>Use string interpolation to concatenate short strings, as shown in the following code.
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                string displayName = $"{nameList[n].LastName}, {nameList[n].FirstName}";
+                </code></li>
+            <li>To append strings in loops, especially when you are working with large amounts of text, use a StringBuilder object.
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                var phrase = "lalalalalalalalalalalalalalalalalalalalalalalalalalalalalala";
+                var manyPhrases = new StringBuilder();
+                for (var i = 0; i < 10000; i++)
+                {
+                    manyPhrases.Append(phrase);
+                }
+                //Console.WriteLine("tra" + manyPhrases);
+            </code>
+            </li>
+            </ul></article>
+        </section>
+        
+    <section class="main-section" id="Implicitly_Typed_Local_Variables">
+        <header id="header-section">Implicitly Typed Local Variables</header>
+        <article>
+        <ul id="section-list">
+            <li>Use implicit typing for local variables when the type of the variable is obvious from the right side of the assignment, or when the precise type is not important.
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                // When the type of a variable is clear from the context, use var
+                // in the declaration.
+                var var1 = "This is clearly a string.";
+                var var2 = 27;
+                </code>
+            
+            </li>
+            <li>Do not use var when the type is not apparent from the right side of the assignment.
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                // When the type of a variable is not clear from the context, use an
+                // explicit type. You generally don't assume the type clear from a method name.
+                // A variable type is considered clear if it's a new operator or an explicit cast.
+                int var3 = Convert.ToInt32(Console.ReadLine());
+                int var4 = ExampleClass.ResultSoFar();
+                </code>
+            </li>
+            
+            <li>Do not rely on the variable name to specify the type of the variable. It might not be correct.
+
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                // Naming the following variable inputInt is misleading.
+                // It is a string.
+                var inputInt = Console.ReadLine();
+                Console.WriteLine(inputInt);
+                </code>
+            </li>
+            
+            <li>Avoid the use of var in place of dynamic.</li>
+            <li>Use implicit typing to determine the type of the loop variable in for loops.
+            <p>The following example uses implicit typing in a for statement.</p>
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                var phrase = "lalalalalalalalalalalalalalalalalalalalalalalalalalalalalala";
+                var manyPhrases = new StringBuilder();
+                for (var i = 0; i < 10000; i++)
+                {
+                    manyPhrases.Append(phrase);
+                }
+                //Console.WriteLine("tra" + manyPhrases);
+                </code>
+            </li>
+                
+            <li>Do not use implicit typing to determine the type of the loop variable in foreach loops.
+            <p>The following example uses explicit typing in a foreach statement.</p>
+            <code id="C#_code">
+                <header id="code-header">C#</header>
+                foreach (char ch in laugh)
+                {
+                    if (ch == 'h')
+                        Console.Write("H");
+                    else
+                        Console.Write(ch);
+                }
+                Console.WriteLine();
+                </code>
+                
+                
+            <div class="note-box">
+                <strong>Note</strong> <br>
+                Be careful not to accidentally change a type of an element of the iterable collection. For example, it is easy to switch from System.Linq.IQueryable to System.Collections.IEnumerable in a foreach statement, which changes the execution of a query.
+                </div>
+            </li> 
+            </ul>
+        </article>
+        </section>
+        
+    <section class="main-section" id="Unsigned_Data_Type">
+        <header id="header-section">Unsigned Data Type</header>
+        <article>
+        <p>In general, use int rather than unsigned types. The use of int is common throughout C#, and it is easier to interact with other libraries when you use int.</p></article>
+        </section>
+    
+    <section class="main-section" id="Arrays">
+        <header id="header-section">Arrays</header>
+        <article>
+        <p>Use the concise syntax when you initialize arrays on the declaration line</p>
+        <code id="C#_code">
+            <header id="code-header">C#</header>
+            // Preferred syntax. Note that you cannot use var here instead of string[].
+            string[] vowels1 = { "a", "e", "i", "o", "u" };
+
+            // If you use explicit instantiation, you can use var.
+            var vowels2 = new string[] { "a", "e", "i", "o", "u" };
+
+            // If you specify an array size, you must initialize the elements one at a time.
+            var vowels3 = new string[5];
+            vowels3[0] = "a";
+            vowels3[1] = "e";
+            // And so on.
+            </code>
+        </article>
+        </section>
+        
+    <section class="main-section" id="Delegates">
+        <header id="header-section"> Delegates</header>
+        <article>
+        <p>Use the concise syntax to create instances of a delegate type.
+            </p>
+        <code id="C#_code">
+            <header id="code-header">C#</header>
+            // First, in class Program, define the delegate type and a method that
+            // has a matching signature.
+
+            // Define the type.
+            public delegate void Del(string message);
+
+            // Define a method that has a matching signature.
+            public static void DelMethod(string str)
+            {
+                Console.WriteLine("DelMethod argument: {0}", str);
+            }
+            </code>
+            
+            
+        <code id="C#_code">
+            <header id="code-header">C#</header>
+            // In the Main method, create an instance of Del.
+
+            // Preferred: Create an instance of Del by using condensed syntax.
+            Del exampleDel2 = DelMethod;
+
+            // The following declaration uses the full syntax.
+            Del exampleDel1 = new Del(DelMethod);
+            </code>
+        </article>
+        </section>
+        
+    <section class="main-section" id="try-catch_and_using_Statements_in_Exception_Handling">
+        <header id="header-section">try-catch and using Statements in Exception Handling</header>
+        <article>
+        <ul id="section-list">
+            <li>Use a try-catch statement for most exception handling.
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            static string GetValueFromArray(string[] array, int index)
+            {
+                try
+                {
+                    return array[index];
+                }
+                catch (System.IndexOutOfRangeException ex)
+                {
+                    Console.WriteLine("Index is out of range: {0}", index);
+                    throw;
+                }
+            }
+            </code>
+            </li>
+            <li>Simplify your code by using the C# using statement. If you have a try-finally statement in which the only code in the finally block is a call to the Dispose method, use a using statement instead.
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            // This try-finally statement only calls Dispose in the finally block.
+            Font font1 = new Font("Arial", 10.0f);
+            try
+            {
+                byte charset = font1.GdiCharSet;
+            }
+            finally
+            {
+                if (font1 != null)
+                {
+                    ((IDisposable)font1).Dispose();
+                }
+            }
+
+            // You can do the same thing with a using statement.
+            using (Font font2 = new Font("Arial", 10.0f))
+            {
+                byte charset = font2.GdiCharSet;
+            }
+            </code>
+            </li>
+            
+            
+            
+            </ul>
+        </article>
+        </section>
+    
+        
+    <section class="main-section" id="&&_and_||_Operators">
+        <header id="header-section">&& and || Operators</header>
+        <article>
+        <p>To avoid exceptions and increase performance by skipping unnecessary comparisons, use && instead of & and || instead of | when you perform comparisons, as shown in the following example.</p>
+            
+        <code id="C#_code">
+            <header id="code-header">C#</header>
+            Console.Write("Enter a dividend: ");
+            var dividend = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter a divisor: ");
+            var divisor = Convert.ToInt32(Console.ReadLine());
+
+            // If the divisor is 0, the second clause in the following condition
+            // causes a run-time error. The && operator short circuits when the
+            // first expression is false. That is, it does not evaluate the
+            // second expression. The & operator evaluates both, and causes
+            // a run-time error when divisor is 0.
+            if ((divisor != 0) && (dividend / divisor > 0))
+            {
+                Console.WriteLine("Quotient: {0}", dividend / divisor);
+            }
+            else
+            {
+                Console.WriteLine("Attempted division by 0 ends up here.");
+            }
+            </code>    
+        </article>
+        </section>
+    
+    <section class="main-section" id="New_Operator">
+        <header id="header-section">New Operator</header>
+        <article>
+        <ul id="section-list">
+            <li>Use the concise form of object instantiation, with implicit typing, as shown in the following declaration
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            var instance1 = new ExampleClass();
+            </code>    
+            The previous line is equivalent to the following declaration.
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            ExampleClass instance2 = new ExampleClass();
+            </code>    
+            </li>
+            
+            <li>Use object initializers to simplify object creation.</li>
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            // Object initializer.
+            var instance3 = new ExampleClass { Name = "Desktop", ID = 37414,
+                Location = "Redmond", Age = 2.3 };
+
+            // Default constructor and assignment statements.
+            var instance4 = new ExampleClass();
+            instance4.Name = "Desktop";
+            instance4.ID = 37414;
+            instance4.Location = "Redmond";
+            instance4.Age = 2.3;
+            </code>    
+            
+            </ul>
+        </article>
+        </section>
+    
+    <section class="main-section" id="Event_Handling">
+        <header id="header-section">Event Handling</header>
+        <article>
+        <p>If you are defining an event handler that you do not need to remove later, use a lambda expression.
+            </p>
+            
+        <code id="C#_code">
+            <header id="code-header">C#</header>
+            public Form2()
+            {
+                // You can use a lambda expression to define an event handler.
+                this.Click += (s, e) =>
+                    {
+                        MessageBox.Show(
+                            ((MouseEventArgs)e).Location.ToString());
+                    };
+            }
+            </code>    
+            
+        <code id="C#_code">
+            <header id="code-header">C#</header>
+            // Using a lambda expression shortens the following traditional definition.
+            public Form1()
+            {
+                this.Click += new EventHandler(Form1_Click);
+            }
+
+            void Form1_Click(object sender, EventArgs e)
+            {
+                MessageBox.Show(((MouseEventArgs)e).Location.ToString());
+            }
+            </code>    
+        </article>
+        </section>
+    
+    <section class="main-section" id="Static_Members">
+        <header id="header-section">Static Members</header>
+        <article>
+        <p>Call static members by using the class name: ClassName.StaticMember. This practice makes code more readable by making static access clear. Do not qualify a static member defined in a base class with the name of a derived class. While that code compiles, the code readability is misleading, and the code may break in the future if you add a static member with the same name to the derived class.</p>
+        </article>
+        </section>
+    
+    <section class="main-section" id="LINQ_Queries">
+        <header id="header-section">LINQ Queries</header>
+        <article>
+        <ul id="section-list">
+            <li>Use meaningful names for query variables. The following example uses seattleCustomers for customers who are located in Seattle.</li>
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            var seattleCustomers = from customer in customers
+                                   where customer.City == "Seattle"
+                                   select customer.Name;
+            </code>    
+            
+            <li>Use aliases to make sure that property names of anonymous types are correctly capitalized, using Pascal casing.</li>
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            var localDistributors =
+                from customer in customers
+                join distributor in distributors on customer.City equals distributor.City
+                select new { Customer = customer, Distributor = distributor };
+            </code>
+            <li>Rename properties when the property names in the result would be ambiguous. For example, if your query returns a customer name and a distributor ID, instead of leaving them as Name and ID in the result, rename them to clarify that Name is the name of a customer, and ID is the ID of a distributor.</li>
+            
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            var localDistributors2 =
+                from customer in customers
+                join distributor in distributors on customer.City equals distributor.City
+                select new { CustomerName = customer.Name, DistributorID = distributor.ID };
+            </code>
+            
+            <li>Use implicit typing in the declaration of query variables and range variables.</li>
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            var seattleCustomers = from customer in customers
+                                   where customer.City == "Seattle"
+                                   select customer.Name;
+            </code>
+            
+            <li>Use multiple from clauses instead of a join clause to access inner collections. For example, a collection of Student objects might each contain a collection of test scores. When the following query is executed, it returns each score that is over 90, along with the last name of the student who received the score.</li>
+            
+            <code id="C#_code">
+            <header id="code-header">C#</header>
+            // Use a compound from to access the inner sequence within each element.
+            var scoreQuery = from student in students
+                             from score in student.Scores
+                             where score > 90
+                             select new { Last = student.LastName, score };
+            </code>
+            
+            
+            
+            </ul>
+        </article>
+        </section>
+    <section class="main-section" id="Security">
+        <header id="header-section">Security</header>
+        <article>
+        <p>Follow the guidelines in <a href="https://docs.microsoft.com/en-us/dotnet/standard/security/secure-coding-guidelines" target="_blank">Secure Coding Guidelines.</a></p>
+        </article>
+        </section>
+    
+        
+    <section class="main-section" id="See_also">
+        <header id="header-section">See also</header>
+        <article>
+        <ul id="section-list">
+            <li><a href="https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/program-structure/coding-conventions" target="_blank">Visual Basic Coding Coventions</a></li>
+            
+            <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/security/secure-coding-guidelines" target="_blank">Secure Coding Guidelines</a></li>
+            
+            </ul>
+        </article>
+        </section>
+    </main>
+    
+    
+    <footer></footer>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
