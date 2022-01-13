@@ -11,11 +11,11 @@
 
 ## General info
 The respitory contains five folders, each of which contains the content of each project on the FCC course of [**Responsive Web Design**](https://www.freecodecamp.org/learn/responsive-web-design/) including:
-- Build a Tribute Page
-- Build a Survey Form
-- Build a Product Landing Page
-- Build a Technical Documentation Page
-- Build a Personal Portfolio Webpage
+- [Build a Tribute Page](./TributeWebsite)
+- [Build a Survey Form](./SurveyForm)
+- [Build a Product Landing Page](./ProductLandingPage)
+- [Build a Technical Documentation Page](./Documentatio)
+- [Build a Personal Portfolio Webpage](./MyPortfolio)
 
 ## Technologies
 - HTML5 / CSS
